@@ -1,0 +1,11 @@
+# Ignorar archivos de configuración local
+config.ini
+.env
+
+# Ignorar archivos temporales
+*.tmp
+*.temp
+
+# Ignorar directorios de dependencias
+node_modules/
+vendor/

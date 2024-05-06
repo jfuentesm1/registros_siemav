@@ -1,0 +1,53 @@
+sudo apt update -y
+sudo apt get install samba
+sudo nano /etc/samba/smb.conf
+ingresar configuracion de usuario:
+
+[pi]
+path = /home/pi/
+browseable = yes
+guest ok = no
+writeable = yes
+
+sudo system start 
+sudo system status
+sudo smbpasswd -a pi
+
+-----
+sudo apt install build-essential python3-pip libffi-dev python3-dev python3-setuptools libssl-dev
+sudo apt get install python3 flask
+sudo apt get install python3 pandas
+sudo apt get install git
+
+actualizar zona horaria
+sudo dpkg-reconfigure tzdata
+
+mkdir gdrive rclone mount gdrive: ~/gdrive &
+
+-establecer un montaje en una carpeta especifica 
+rclone mount gdrive: ~/mi-carpeta-especifica &
+-obtener permisos necesarios
+sudo chmod 777 /ruta/a/la/carpeta
+-crear configuracion de gdrive
+rclone config create gdrive drive
+rclone copy "/home/pi/google-drive/REGISTRO DE TARJETAS.xlsx" gdrive:
+-enlistar procesos ejecutandose
+lsof ~/google-drive
+-desmontar una unidad de drive
+fusermount -uz ~/google-drive
+-archivo de configurar rclone
+sudo nano /etc/fuse.conf
+-montar unidad con permisos 
+rclone mount gdrive: . --allow-other --allow-non-empty --vfs-cache-mode writes
+
+rsync -av --delete ~/FlaskApp/gdrive/'REGISTRO DE TARJETAS.xlsx' ~/FlaskApp/registro
+rsync -av --delete ~/FlaskApp/registro/'REGISTRO DE TARJETAS.xlsx' ~/FlaskApp/gdrive
+
+git config --global --add safe.directory '%(prefix)///192.168.1.50/pi/pi/FlaskApp'
+
+#### comandos para montar unidad drive ####
+rm -rf /home/pi/FlaskApp/gdrive/* 
+rclone mount gdrive: /home/pi/FlaskApp/gdrive/ &
+cp /home/pi/FlaskApp/registro/* /home/pi/FlaskApp/gdrive/* 
+#### reiniciar crontab ####
+sudo service cron restart

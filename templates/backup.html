@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTROL DE REPARACIONES</title>
+
+    <style>
+        body {
+            font-family: 'Calibri', sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .titulo {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+            display: inline-block;
+            text-align: left;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grupo-campos {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: calc(100% - 16px);
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 15px 20px; 
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .menu-desplegable {
+            width: calc(100% - 16px);
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+            text-align: center;
+        }
+
+        .menu-desplegable select {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+            text-align: center;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .menu-desplegable select:hover {
+            background-color: #eaeaea;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1 class="titulo">REPORTE DE REPARACIONES</h1>
+    <form action="/reporte" method="post">
+        
+        <div class="grupo-campos">
+            <p><b>DIAGNÓSTICO DE TARJETAS:</b></p>
+            
+            <label for="sector">Sector:</label>
+            <input type="text" id="sector" name="sector">
+            
+            <label for="semana">Semana:</label>
+            <input type="number" id="semana" name="semana">
+
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo">
+
+            <label for="diagnostico">Diagnóstico:</label>
+            <input type="text" id="diagnostico" name="diagnostico">
+
+            <label for="proyecto">Proyecto:</label>
+            <select id="proyecto" name="proyecto" class="menu-desplegable">
+                <option value="AMA">AMA</option>
+                <option value="ASP">ASP</option>
+            </select>
+
+            <label for="observacion">Observación:</label>
+            <select id="observacion" name="observacion" class="menu-desplegable">
+                <option value="Reparada">REPARADA</option>
+                <option value="Repuesto">REPUESTO</option>
+                <option value="Chatarra">CHATARRA</option>
+                <option value="Reparable">REPARABLE</option>
+                <option value="Irreparable">IRREPARABLE</option>
+            </select>
+
+            <button type="submit" name="numeros_y_sector">Enviar informe</button>
+        </div>
+    </form>
+    <form action="/lecturas" method="post">
+        
+        <p><b>REPARACIÓN DE TARJETAS:</b></p>
+        <label for="code">Fecha/Código:</label>
+        <input type="text" id="code" name="code">
+        <br>
+        <button type="submit" name="revisar_tarjetas">Revisar informe</button>
+    
+    </form>
+    <form action="/componentes" method="post">
+        
+        <p><b>SOLICITUD DE COMPONENTES:</b></p>
+        <label for="code_solicitud">Código:</label>
+        <input type="text" id="code_solicitud" name="code_solicitud">
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad">
+        <label for="proyecto_solicitud">Proyecto:</label>
+        <select id="proyecto_solicitud" name="proyecto_solicitud" class="menu-desplegable">
+            <option value="AMA">AMA</option>
+            <option value="ASP">ASP</option>
+        </select>
+
+        <button type="submit" name="solicitar_componentes">Solicitar</button>
+    
+    </form>
+</body>
+</html>

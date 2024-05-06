@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTROL DE REPARACIONES</title>
+    <style>
+        body {
+            font-family: 'Calibri', sans-serif;
+            text-align: center; /* Para centrar los elementos del cuerpo del documento */
+            margin: 0; /* Eliminar el margen predeterminado */
+            padding: 0; /* Eliminar el relleno predeterminado */
+            background-color: #f2f2f2; /* Color de fondo */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Ocupar el 100% del alto de la ventana del navegador */
+            padding-top: 20px; /* Espacio superior para el contenedor */
+        }
+
+        form {
+            margin-bottom: 20px;
+            background-color: #fff; /* Color de fondo del formulario */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+            width: 80%; /* Ancho del formulario */
+            max-width: 400px; /* Ancho máximo */
+            
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px; /* Espacio inferior para el título */
+            color: #333; /* Color de texto */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold; /* Negrita para las etiquetas */
+            color: #555; /* Color de texto más oscuro */
+        }
+
+        input, select {
+            width: 100%; /* Ancho completo */
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+            text-align: center; /* Centra el texto dentro del menú desplegable */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-bottom: 10px; /* Espacio inferior para los párrafos */
+            color: #666; /* Color de texto más suave */
+        }
+        
+        .placeholder-text {
+        font-family: 'Calibri', sans-serif;
+        
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/lecturas" method="post">
+
+            <label for="code">REVISION DE REPORTES </label>
+            <input type="text" id="code" name="code" placeholder="FECHA O CODIGO" class="placeholder-text">
+            <!--
+            <select id="direcciones" name="direcciones">
+                <option value="/home/pi/FlaskApp/inventario reparaciones/registro.xlsx">REGISTRO</option>
+                <option value="/home/pi/FlaskApp/inventario reparaciones/componentes.xlsx">COMPONENTES</option>
+
+           </select>
+            -->
+            <select id="name" name="name">
+                <option value="JORGE FUENTES">JORGE FUENTES</option>
+                <option value="ARIEL MORETA">ARIEL MORETA</option>
+                <option value="JEREMY CRUEL">JEREMY CRUEL</option>
+                <option value="ADRIAN VERA">ADRIAN VERA</option>
+                <option value="MAISSA CASTANEDA">MAISSA CASTANEDA</option>
+                <option value="MARIA SANTANA">MARIA SANTANA</option>
+                <option value="KAREN CASTILLO">KAREN CASTILLO</option>
+            </select>
+
+            <button type="submit" name="revisar_tarjetas">REVISAR </button>
+        </form>
+        
+        <form action="/eliminar" method="post">
+            <label for="delete">ELIMINAR REPORTES </label>
+            <input type="text" id="delete" name="delete" placeholder="CODIGO" class="placeholder-text">
+
+            <button type="submit" name="eliminar_tarjetas">ELIMINAR </button>
+        </form>
+        <!--
+        <form action="/envios" method="post">
+            <label for="delete">Sector de envio:</label>
+            <input type="text" id="sector_envio" name="sector_envio">
+            <label for="envio">Código de envio :</label>
+            <input type="text" id="envio" name="envio">
+            <button type="submit" name="enviar_tarjetas" value= "ENVIO" >Registrar envio</button>
+        </form>
+        -->
+
+
+    </div>
+</body>
+</html>

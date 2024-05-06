@@ -1,0 +1,27 @@
+### pasos para montar la unidad drive ###
+1. conectarse a SIEMAV y abrir programa putty:
+
+2. ingresar por ssh la raspberry:
+	IP address: 192.168.1.50
+	login as: pi
+	password: pi 
+
+3. vefificar el montaje de la unidad "gdrive" en la columna "Filesystem" ejecutando: df -h
+	en caso de que este "gdrive:" no continuar
+
+4. ejecutar comando para montar unidad drive: 
+	rclone mount --allow-non-empty gdrive: /home/pi/FlaskApp/gdrive/ &
+
+5. vefificar el montaje de la unidad "gdrive" en la columna "Filesystem" ejecutando: df -h
+	deberia enlistar la unidad "gdrive:"
+
+6. se puede cerrar putty
+
+####### FINALIZADO  ##########
+
+### pasos para desmontar la unidad drive ###
+1. ejecutar: fusermount -uz /home/pi/FlaskApp/gdrive/ &
+
+2. se puede cerrar putty
+
+####### FINALIZADO  ##########

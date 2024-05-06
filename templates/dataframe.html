@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTROL DE REPARACIONES</title>
+    <style>
+        body {
+            font-family: 'Calibri', sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .espacio {
+            margin: 20px auto;
+            width: 80%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+
+        .tabla-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #dddddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 15px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>DETALLES DE DIAGNÓSTICO</h1>
+    <div class="tabla-container">
+        <div class="espacio">
+            {{ table | safe }}
+        </div>
+        <div class="espacio">
+            <p><b>RESUMEN DE DIAGNÓSTICO</b></p>        
+            {{ resumen | safe }}
+            
+            <p><b> {{ responsable | safe }} <p><b>
+        </div>
+    </div>
+    
+    <form action="/">
+        <button type="submit">VOLVER</button>
+    </form>
+</body>
+</html>
